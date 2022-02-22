@@ -18,6 +18,7 @@ namespace DIMS_Core.DataAccessLayer.Repositories
         private ITaskRepository _taskRepository;
         private IVUserTrackRepository _vUserTrackRepository;
         private IVTaskRepository _vTaskRepository;
+        private IVUserProgressRepository _vUserProgressRepository;
 
         public UnitOfWork(DimsContext context)
         {
@@ -35,6 +36,7 @@ namespace DIMS_Core.DataAccessLayer.Repositories
         public ITaskRepository TaskRepository => _taskRepository ??= new TaskRepository(_context);
         public IVTaskRepository VTaskRepository => _vTaskRepository ??= new VTaskRepository(_context);
         public IVUserTrackRepository VUserTrackRepository => _vUserTrackRepository ??= new VUserTrackRepository(_context);
+        public IVUserProgressRepository VUserProgressRepository => _vUserProgressRepository ??= new VUserProgressRepository(_context);
 
         public Task SaveChanges()
         {

@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Threading.Tasks;
-using DIMS_Core.DataAccessLayer.Context;
+using DIMS_Core.DataAccessLayer.Models;
 using DIMS_Core.Tests.Repositories.Fixtures;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
+using Task = System.Threading.Tasks.Task;
 
 namespace DIMS_Core.Tests.Repositories
 {
@@ -74,10 +74,10 @@ namespace DIMS_Core.Tests.Repositories
         {
             // Arrange
             var entity = new Sample
-                         {
-                             Name = "Create",
-                             Description = "Description"
-                         };
+            {
+                Name = "Create",
+                Description = "Description"
+            };
 
             // Act
             await _fixture.Repository.Create(entity);
@@ -100,11 +100,11 @@ namespace DIMS_Core.Tests.Repositories
         {
             // Arrange
             var entity = new Sample
-                         {
-                             SampleId = _fixture.SampleId,
-                             Name = "Create",
-                             Description = "Description"
-                         };
+            {
+                SampleId = _fixture.SampleId,
+                Name = "Create",
+                Description = "Description"
+            };
 
             // Act
             _fixture.Repository.Update(entity);

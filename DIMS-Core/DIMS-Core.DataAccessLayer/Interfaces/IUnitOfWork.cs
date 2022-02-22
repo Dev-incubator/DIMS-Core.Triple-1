@@ -15,6 +15,7 @@ namespace DIMS_Core.DataAccessLayer.Interfaces
         IUserTaskRepository UserTaskRepository { get; }
         IVUserTaskRepository VUserTaskRepository { get; }
         ITaskStateRepository TaskStateRepository { get; }
+        IVUserProgressRepository VUserProgressRepository { get; }
 
         Task SaveChanges();
     }
