@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace DIMS_Core.Tests.ContextCreator
+namespace DIMS_Core.Tests.TestsContext
 {
     public static class ContextCreator
     {
@@ -20,9 +20,6 @@ namespace DIMS_Core.Tests.ContextCreator
             return builder.Options;
         }
 
-        private static string GetInMemoryDbName()
-        {
-            return $"InMemory_{Guid.NewGuid()}";
-        }
+        private static string GetInMemoryDbName() => $"InMemory_{Guid.NewGuid()}";
     }
 }
