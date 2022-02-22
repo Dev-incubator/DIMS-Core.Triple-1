@@ -1,5 +1,4 @@
 ﻿using DIMS_Core.DataAccessLayer.Context;
-using DIMS_Core.Tests;
 using System;
 
 namespace DIMS_Core.Tests.Repositories.Fixtures.Base
