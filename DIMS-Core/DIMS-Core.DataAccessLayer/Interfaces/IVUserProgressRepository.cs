@@ -2,7 +2,8 @@
 
 namespace DIMS_Core.DataAccessLayer.Interfaces
 {
-    public interface IVUserTrackRepository : IReadOnlyRepository<VUserTrack>
+    public interface IVUserProgressRepository : IReadOnlyRepository<VUserProgress>
     {
+
     }
 }

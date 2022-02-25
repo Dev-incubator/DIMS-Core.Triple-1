@@ -1,19 +1,19 @@
-﻿using System;
-using DIMS_Core.DataAccessLayer.Models;
+﻿using DIMS_Core.DataAccessLayer.Models;
 using DIMS_Core.Tests.Repositories.Fixtures;
 using Microsoft.EntityFrameworkCore;
+using System;
 using Xunit;
 using Task = System.Threading.Tasks.Task;
 
 namespace DIMS_Core.Tests.Repositories
 {
-    public class SampleRepositoryTests : IDisposable
+    public class DirectionRepositoryTests : IDisposable
     {
-        private readonly SampleRepositoryFixture _fixture;
+        private readonly DirectionRepositoryFixture _fixture;
 
-        public SampleRepositoryTests()
+        public DirectionRepositoryTests()
         {
-            _fixture = new SampleRepositoryFixture();
+            _fixture = new DirectionRepositoryFixture();
         }
 
         public void Dispose()
@@ -40,12 +40,12 @@ namespace DIMS_Core.Tests.Repositories
         public async Task GetById_OK()
         {
             // Act
-            var result = await _fixture.Repository.GetById(_fixture.SampleId);
+            var result = await _fixture.Repository.GetById(_fixture.DirectionId);
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(_fixture.SampleId, result.SampleId);
-            Assert.Equal("Test Direction", result.Name);
+            Assert.Equal(_fixture.DirectionId, result.DirectionId);
+            Assert.Equal("Test Name", result.Name);
             Assert.Equal("Test Description", result.Description);
         }
 
@@ -73,7 +73,7 @@ namespace DIMS_Core.Tests.Repositories
         public async Task Create_OK()
         {
             // Arrange
-            var entity = new Sample
+            var entity = new Direction
             {
                 Name = "Create",
                 Description = "Description"
@@ -85,7 +85,7 @@ namespace DIMS_Core.Tests.Repositories
 
             // Assert
             Assert.NotNull(entity);
-            Assert.NotEqual(default, entity.SampleId);
+            Assert.NotEqual(default, entity.DirectionId);
         }
 
         [Fact]
@@ -99,9 +99,9 @@ namespace DIMS_Core.Tests.Repositories
         public async Task Update_OK()
         {
             // Arrange
-            var entity = new Sample
+            var entity = new Direction
             {
-                SampleId = _fixture.SampleId,
+                DirectionId = _fixture.DirectionId,
                 Name = "Create",
                 Description = "Description"
             };
@@ -112,7 +112,7 @@ namespace DIMS_Core.Tests.Repositories
 
             // Assert
             Assert.NotNull(entity);
-            Assert.NotEqual(default, entity.SampleId);
+            Assert.NotEqual(default, entity.DirectionId);
         }
 
         [Fact]
@@ -126,11 +126,11 @@ namespace DIMS_Core.Tests.Repositories
         public async Task Delete_OK()
         {
             // Act
-            await _fixture.Repository.Delete(_fixture.SampleId);
+            await _fixture.Repository.Delete(_fixture.DirectionId);
             await _fixture.Context.SaveChangesAsync();
 
             // Assert
-            var deletedEntity = await _fixture.Context.Samples.FindAsync(_fixture.SampleId);
+            var deletedEntity = await _fixture.Context.Samples.FindAsync(_fixture.DirectionId);
             Assert.Null(deletedEntity);
         }
 
