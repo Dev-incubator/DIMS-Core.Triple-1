@@ -1,4 +1,5 @@
 ﻿using System;
+using DIMS_Core.DataAccessLayer.Interfaces;
 using DIMS_Core.DataAccessLayer.Models;
 using DIMS_Core.DataAccessLayer.Repositories;
 using DIMS_Core.Tests.Repositories.Fixtures.Base;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DIMS_Core.Tests.Repositories.Fixtures
 {
-    internal class SampleRepositoryFixture : RepositoryFixture<SampleRepository>, IDisposable
+    internal class SampleRepositoryFixture : RepositoryFixture<IRepository<Sample>>
     {
         public int SampleId { get; private set; }
 

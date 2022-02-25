@@ -1,11 +1,12 @@
-﻿using DIMS_Core.DataAccessLayer.Models;
+﻿using DIMS_Core.DataAccessLayer.Interfaces;
+using DIMS_Core.DataAccessLayer.Models;
 using DIMS_Core.DataAccessLayer.Repositories;
 using DIMS_Core.Tests.Repositories.Fixtures.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace DIMS_Core.Tests.Repositories.Fixtures
 {
-    public class VUserProgressRepositoryFixture : RepositoryFixture<VUserProgressRepository>
+    public class VUserProgressRepositoryFixture : RepositoryFixture<IReadOnlyRepository<VUserProgress>>
     {
         public int VUserProgressId { get; private set; }
 
